@@ -6,29 +6,29 @@ public class PlayerControl : MonoBehaviour
 {
 
     float speed = 10f;
+    bool shouldFire = false;
 
-    public GameObject laserPrefab;
+    public GameObject laserBeam;
     public GameObject leftTurret;
     public GameObject rightTurret;
-
 
     // Update is called once per frame
     void Update()
     {
         // Horizontal and Vertical are both set in the input settings under the edit tab.
-        // Horizontal is the Up/Down or W/S Keys.
-        float xAxis = Input.GetAxis("Horizontal");
-        // Vertical is the Left/Right or A/D Keys.
-        float yAxis = Input.GetAxis("Vertical");
+        // Vertical is the Up/Down or W/S Keys.
+        float xAxis = Input.GetAxis("Vertical");
+        // Horizontal is the Left/Right or A/D Keys.
+        float yAxis = Input.GetAxis("Horizontal");
 
 
         transform.Translate(new Vector2(xAxis, yAxis) * Time.deltaTime * speed);
 
         // Calling every frame if the spacebar is press.
-        if (Input.GetKeyDown("space"))
+        if (Input.GetButton("Jump"))
         {
-            GameObject.Instantiate(laserPrefab, leftTurret.transform.position, Quaternion.identity);
-            GameObject.Instantiate(laserPrefab, rightTurret.transform.position, Quaternion.identity);
+          Instantiate(laserBeam, leftTurret.transform.position, transform.rotation);
+            Instantiate(laserBeam, rightTurret.transform.position, transform.rotation);
         }
 
     }
