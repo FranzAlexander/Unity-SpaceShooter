@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerLaser : MonoBehaviour
 {
-    public GameObject laserPrefab;
-
     public float laserSpeed;
 
     // Update is called once per frame
@@ -19,5 +17,11 @@ public class PlayerLaser : MonoBehaviour
         position += transform.rotation * velocity;
 
         transform.position = position;
+
+        //When the goes past 20 position from the original position that game object will destroy itself.
+        if (transform.position.x > 20f)
+        {
+            Destroy(gameObject);
+        }
     }
 }

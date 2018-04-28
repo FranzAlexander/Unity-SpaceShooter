@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButton("Jump"))
         {
           Instantiate(laserBeam, leftTurret.transform.position, transform.rotation);
-            Instantiate(laserBeam, rightTurret.transform.position, transform.rotation);
+          Instantiate(laserBeam, rightTurret.transform.position, transform.rotation);
         }
 
     }
