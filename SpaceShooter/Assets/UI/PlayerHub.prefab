@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 223868847030122312}
   - component: {fileID: 114272929313687596}
   - component: {fileID: 114047254026798266}
+  - component: {fileID: 114400566165421734}
   m_Layer: 5
   m_Name: PlayerHub
   m_TagString: Untagged
@@ -240,21 +241,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.245994, b: 0.72794116, a: 1}
+  m_Color: {r: 0.1771194, g: 0.20087096, b: 0.6691177, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 1265d7b909d86ab468925ed9f885ad5d, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114400566165421734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796339831852786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08282b5e795d70e43baeb9be739cf720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyAmountFill: {fileID: 224256039342884962}
 --- !u!114 &114445566312360178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,7 +314,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1265d7b909d86ab468925ed9f885ad5d, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1

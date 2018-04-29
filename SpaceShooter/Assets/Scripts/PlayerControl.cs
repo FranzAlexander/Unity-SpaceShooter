@@ -5,22 +5,31 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     // Player movement
-    float speed = 10f;
-    float startPosition = -8f;
+    private float speed = 10f;
+    private float startPosition = -8f;
 
     // Player shooting
-    float weaponCoolDown = 1f;
-    float weaponEnergy = 100f;
+    private float shotEnergyAmount = 1f;
+    private float energyReplenish = 0.2f;
+    private float eneryAmount = 1f;
+    private float weaponOverheatCoolDown = 0.4f;
+    private bool weaponOverheat = false;
 
     // Game objects
     public GameObject laserBeam;
     public GameObject leftTurret;
     public GameObject rightTurret;
 
+    PlayerBars playerBars;
+
+    AudioSource shootSound;
+
     void Start()
     {
         // Starting the player position at the left side of the area.
         transform.position = new Vector3(startPosition, 0);
+        playerBars = new PlayerBars();
+        shootSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,12 +45,25 @@ public class PlayerControl : MonoBehaviour
 
         // Calling every frame if the spacebar is press.
         //if (Input.GetButton("Jump"))
-        if(Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space"))
         {
-            Instantiate(laserBeam, leftTurret.transform.position, transform.rotation);
-            Instantiate(laserBeam, rightTurret.transform.position, transform.rotation);
+            if (shotEnergyAmount <= eneryAmount)
+            {
+                eneryAmount -= shotEnergyAmount;
+                Instantiate(laserBeam, leftTurret.transform.position, transform.rotation);
+                Instantiate(laserBeam, rightTurret.transform.position, transform.rotation);
+                shootSound.Play();
+            }
         }
 
+        eneryAmount += energyReplenish * Time.deltaTime;
+
+        eneryAmount = Mathf.Clamp(eneryAmount, 0f, 1f);
+    }
+
+    public float GetEnergyAmount()
+    {
+        return eneryAmount;
     }
 
 }

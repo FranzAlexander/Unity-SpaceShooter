@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class PlayerBars : MonoBehaviour
 {
-    public Image energyBar;
-    // Use this for initialization
-    void Start()
-    {
+    public RectTransform energyAmountFill;
 
-    }
+    private PlayerControl playerControl  = new PlayerControl();
 
-    // Update is called once per frame
     void Update()
     {
+        EnergyBar(playerControl.GetEnergyAmount());    
+    }
 
+    void EnergyBar(float energyAmount)
+    {
+        energyAmountFill.localScale = new Vector3(energyAmount, 1f, 1f);
     }
 }
