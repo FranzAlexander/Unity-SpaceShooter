@@ -60,6 +60,7 @@ public class PlayerControl : MonoBehaviour
 
         eneryAmount += energyReplenish * Time.deltaTime;
 
+        // Clamping so that energyAmount will always be between 0f and 1f.
         eneryAmount = Mathf.Clamp(eneryAmount, 0f, 1f);
         energyBar.fillAmount = eneryAmount;
     }
