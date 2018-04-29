@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 223868847030122312}
   - component: {fileID: 114272929313687596}
   - component: {fileID: 114047254026798266}
-  - component: {fileID: 114400566165421734}
+  - component: {fileID: 114352336790045662}
   m_Layer: 5
   m_Name: PlayerHub
   m_TagString: Untagged
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114400566165421734
+--- !u!114 &114352336790045662
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -264,10 +264,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1796339831852786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08282b5e795d70e43baeb9be739cf720, type: 3}
+  m_Script: {fileID: 11500000, guid: 760067e439929e046b06fc3c0e195824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyAmountFill: {fileID: 224256039342884962}
+  energyBarImage: {fileID: 114302742206073140}
 --- !u!114 &114445566312360178
 MonoBehaviour:
   m_ObjectHideFlags: 1

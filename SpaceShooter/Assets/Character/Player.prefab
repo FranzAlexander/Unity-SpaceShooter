@@ -238,9 +238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf54697156b04874197d556109d8e83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eneryAmount: 1
   laserBeam: {fileID: 1445452582623604, guid: 64b1d421a85f8a9478ab045d3d5e85fe, type: 2}
   leftTurret: {fileID: 1235959826327156}
   rightTurret: {fileID: 1125603932143246}
+  energyBar: {fileID: 0}
 --- !u!212 &212086799472757278
 SpriteRenderer:
   m_ObjectHideFlags: 1

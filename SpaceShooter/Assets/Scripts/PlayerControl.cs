@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerControl : MonoBehaviour
     // Player shooting
     private float shotEnergyAmount = 1f;
     private float energyReplenish = 0.2f;
-    private float eneryAmount = 1f;
+    public float eneryAmount = 1f;
     private float weaponOverheatCoolDown = 0.4f;
     private bool weaponOverheat = false;
 
@@ -20,7 +21,8 @@ public class PlayerControl : MonoBehaviour
     public GameObject leftTurret;
     public GameObject rightTurret;
 
-    PlayerBars playerBars;
+    // Player UI Elements
+    public Image energyBar;
 
     AudioSource shootSound;
 
@@ -28,7 +30,7 @@ public class PlayerControl : MonoBehaviour
     {
         // Starting the player position at the left side of the area.
         transform.position = new Vector3(startPosition, 0);
-        playerBars = new PlayerBars();
+
         shootSound = GetComponent<AudioSource>();
     }
 
@@ -59,11 +61,6 @@ public class PlayerControl : MonoBehaviour
         eneryAmount += energyReplenish * Time.deltaTime;
 
         eneryAmount = Mathf.Clamp(eneryAmount, 0f, 1f);
+        energyBar.fillAmount = eneryAmount;
     }
-
-    public float GetEnergyAmount()
-    {
-        return eneryAmount;
-    }
-
 }
