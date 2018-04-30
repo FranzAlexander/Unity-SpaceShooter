@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Enemy Spawn
-    private float spawnRate = 10f;
-    private float spawnEnemy = 0f;
+    // Enemy Movement
+    private float enemySpeed = 4f;
 
-    // Game objects
+    // Game Objects
     public GameObject enemy;
 
     // Use this for initialization
@@ -20,13 +19,12 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 position = new Vector3(8f, Random.Range(-4.5f, 4.5f), 1f);
+        Vector3 velocity = new Vector3(0, enemySpeed * Time.deltaTime, 0);
 
-        spawnEnemy++;
-        if (spawnEnemy == spawnRate)
-        {
-            Instantiate(enemy, position, transform.rotation);
-            spawnEnemy = 0f;
-        }
+        Vector3 position = transform.position;
+
+        position += transform.rotation * velocity;
+
+        transform.position = position;
     }
 }
