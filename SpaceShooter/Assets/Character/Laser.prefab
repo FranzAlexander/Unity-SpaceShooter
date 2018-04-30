@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4890809725934082}
   - component: {fileID: 212244028500249588}
-  - component: {fileID: 50256980663895614}
   - component: {fileID: 114967961259163468}
   - component: {fileID: 61002859021025540}
   m_Layer: 0
@@ -43,26 +42,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50256980663895614
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1445452582623604}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!61 &61002859021025540
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -100,6 +79,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserSpeed: 12
+  enemyExplosion: {fileID: 1686700429228522, guid: 5e48aebc9374cb148895712339941886,
+    type: 2}
+  explosion:
+  - {fileID: 21300000, guid: 7615c908d3050334f8f46900ad328d5d, type: 3}
+  - {fileID: 21300000, guid: b21cc0d689a2a4445ab3912e6ff315c2, type: 3}
+  - {fileID: 21300000, guid: dc8d59e24f8b433419b6f8e63526b15e, type: 3}
+  - {fileID: 21300000, guid: 756566993171d7641a3712df5b353244, type: 3}
+  - {fileID: 21300000, guid: 6b1aeae15a0ec544993f1d850967c3f9, type: 3}
+  - {fileID: 21300000, guid: c11b35168747ef141a977d69ee3a6bca, type: 3}
+  - {fileID: 21300000, guid: 6a2950cfe9f1c8e4a941f14c9862b215, type: 3}
+  - {fileID: 21300000, guid: 5c644d2c99b2f794f972e702f82a1e00, type: 3}
+  - {fileID: 21300000, guid: 08bb827e67cab0f459f69e949c5c451f, type: 3}
 --- !u!212 &212244028500249588
 SpriteRenderer:
   m_ObjectHideFlags: 1

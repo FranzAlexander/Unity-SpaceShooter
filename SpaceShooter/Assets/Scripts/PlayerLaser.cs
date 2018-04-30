@@ -7,6 +7,15 @@ public class PlayerLaser : MonoBehaviour
     // Laser Movement
     public float laserSpeed;
 
+    // Enemy Effects
+    private bool exploded = false;
+    private Vector3 lastPosition;
+    public GameObject enemyExplosion;
+    private SpriteRenderer spriteRenderer;
+
+    // Sprite
+    public Sprite[] explosion;
+
     // Update is called once per frame
     void Update()
     {
@@ -32,10 +41,37 @@ public class PlayerLaser : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // If this collider on this object hits the collider on the game object with the "Enemy" tag.
         if (collision.gameObject.tag == "Enemy")
         {
+            // Getting the last position of the object for the effect.
+            lastPosition = transform.position;
+            // Destory the game objects that came into contact.
             Destroy(collision.gameObject);
             Destroy(gameObject);
+
+            exploded = true;
+
+            EnemyDestoryedEffect(exploded);
+        }
+    }
+
+    // Method that is going to just be for visual effet.
+    void EnemyDestoryedEffect(bool enemyDestroyed)
+    {
+        // Getting a random number between the range of 0 and 8.
+        int randomSpriteNumeber = Random.Range(0,8);
+
+        spriteRenderer = enemyExplosion.GetComponent<SpriteRenderer>();
+
+        // The enemy has been destroyed.
+        if (enemyDestroyed)
+        {
+            // Assign the random sprite from the array to the game object.
+            spriteRenderer.sprite = explosion[randomSpriteNumeber];
+
+            // Create the game object at the last position of the enemy.
+            Instantiate(enemyExplosion,lastPosition,transform.rotation);
         }
     }
 }

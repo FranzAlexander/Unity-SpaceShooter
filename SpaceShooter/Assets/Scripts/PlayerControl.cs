@@ -48,7 +48,7 @@ public class PlayerControl : MonoBehaviour
         transform.Translate(new Vector2(xAxis, yAxis) * Time.deltaTime * speed);
 
         // Calling every frame if the spacebar is press.
-        // If (Input.GetButton("Jump"))
+        // If (Input.GetButton("Jump")) this is what use to be here.
         if (Input.GetKeyDown("space"))
         {
             // Checking if the player has enough enery to be able to shoot.
