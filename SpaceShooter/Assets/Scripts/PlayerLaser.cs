@@ -60,7 +60,7 @@ public class PlayerLaser : MonoBehaviour
     void EnemyDestoryedEffect(bool enemyDestroyed)
     {
         // Getting a random number between the range of 0 and 8.
-        int randomSpriteNumeber = Random.Range(0,8);
+        int randomSpriteNumber = Random.Range(0, 8);
 
         spriteRenderer = enemyExplosion.GetComponent<SpriteRenderer>();
 
@@ -68,10 +68,10 @@ public class PlayerLaser : MonoBehaviour
         if (enemyDestroyed)
         {
             // Assign the random sprite from the array to the game object.
-            spriteRenderer.sprite = explosion[randomSpriteNumeber];
+            spriteRenderer.sprite = explosion[randomSpriteNumber];
 
             // Create the game object at the last position of the enemy.
-            Instantiate(enemyExplosion,lastPosition,transform.rotation);
+            Instantiate(enemyExplosion, lastPosition, transform.rotation);
         }
     }
 }
