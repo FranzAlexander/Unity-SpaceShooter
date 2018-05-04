@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
         Vector3 position = transform.position;
 
-        position += transform.rotation * velocity;
+        position -= transform.rotation * velocity;
 
         transform.position = position;
     }

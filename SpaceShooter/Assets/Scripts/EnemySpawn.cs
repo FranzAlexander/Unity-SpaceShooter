@@ -12,10 +12,11 @@ public class EnemySpawn : MonoBehaviour
     // Game Objects
     public GameObject enemy;
 
-    // Use this for initialization
+    private UIController uIController;
+
     void Start()
     {
-
+        uIController = new UIController();
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class EnemySpawn : MonoBehaviour
 
         if (spawnEnemy == spawnRate)
         {
-            Instantiate(enemy, spawnPosition, transform.rotation);
+            Instantiate(enemy, spawnPosition, enemy.transform.rotation);
             spawnEnemy = 0f;
         }
 

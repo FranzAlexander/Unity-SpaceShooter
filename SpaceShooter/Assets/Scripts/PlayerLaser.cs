@@ -16,6 +16,9 @@ public class PlayerLaser : MonoBehaviour
     // Sprite
     public Sprite[] explosion;
 
+    // Player Object
+    PlayerControl player = new PlayerControl();
+
     // Update is called once per frame
     void Update()
     {

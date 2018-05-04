@@ -5,8 +5,13 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
 
-    public static bool pausedGame = false;
+    public static bool pausedGame;
     public GameObject pauseMenu;
+
+    void Start()
+    {
+        pausedGame = false;
+    }
 
     // Update is called once per frame
     void Update()
