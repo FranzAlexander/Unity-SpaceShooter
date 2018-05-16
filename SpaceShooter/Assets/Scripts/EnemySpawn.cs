@@ -12,11 +12,8 @@ public class EnemySpawn : MonoBehaviour
     // Game Objects
     public GameObject enemy;
 
-    private UIController uIController;
-
     void Start()
     {
-        uIController = new UIController();
     }
 
     // Update is called once per frame

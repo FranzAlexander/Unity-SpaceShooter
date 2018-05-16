@@ -17,10 +17,20 @@ public class PlayerLaser : MonoBehaviour
     public Sprite[] explosion;
 
     // Player Object
-    PlayerControl player = new PlayerControl();
+    PlayerControl player;
+
+    void Start()
+    {
+        player = new PlayerControl();
+    }
 
     // Update is called once per frame
     void Update()
+    {
+        PlayerLaserMovement();
+    }
+
+    void PlayerLaserMovement()
     {
         // Setting position to objects current position.
         Vector3 position = transform.position;
@@ -44,6 +54,7 @@ public class PlayerLaser : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+
         // If this collider on this object hits the collider on the game object with the "Enemy" tag.
         if (collision.gameObject.tag == "Enemy")
         {

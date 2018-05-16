@@ -14,7 +14,6 @@ public class ExplosionEffect : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x + (2f * Time.deltaTime), transform.localScale.y + (2f * Time.deltaTime), 0f);
 
         countDown -= countDownRate * Time.deltaTime;
-        Debug.Log(countDown);
 
         if (countDown <= 0f)
         {

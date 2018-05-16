@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
+    // Player Stats
+    private float startHealth = 1f;
+    public float health = 1f;
+    public float damageTaken;
+
     // Player Movement
     private float speed = 10f;
     private float startPosition = -8f;
@@ -20,8 +25,13 @@ public class PlayerControl : MonoBehaviour
     public GameObject laserBeam;
     public GameObject leftTurret;
     public GameObject rightTurret;
+    private Enemy enemy;
+
+    // UI Elements
+    UIController UIController;
 
     // Player UI Elements
+    public Image healthBar;
     public Image energyBar;
 
     // Player Audio
@@ -29,6 +39,9 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
+        enemy = new Enemy();
+        UIController = new UIController();
+
         // Starting the player position at the left side of the area.
         transform.position = new Vector3(startPosition, 0);
 
@@ -51,27 +64,61 @@ public class PlayerControl : MonoBehaviour
         // If (Input.GetButton("Jump")) this is what use to be here.
         if (Input.GetKeyDown("space"))
         {
-            // Checking if the player has enough enery to be able to shoot.
-            if (shotEnergyAmount <= energyAmount)
-            {
-                // Decreasing the energy amount by the shot amount.
-                energyAmount -= shotEnergyAmount;
-
-                // Create the two laser objects at the position and rotation given.
-                Instantiate(laserBeam, leftTurret.transform.position, transform.rotation);
-                Instantiate(laserBeam, rightTurret.transform.position, transform.rotation);
-
-                // Play the sound effect.
-                shootSound.Play();
-            }
+            Shoot();
         }
 
+        // Calling this mathod so that the energy is changed effect frame.
+        PlayerEnergy();
+    }
+
+    public void Shoot()
+    {
+        // Checking if the player has enough enery to be able to shoot.
+        if (shotEnergyAmount <= energyAmount)
+        {
+            // Decreasing the energy amount by the shot amount.
+            energyAmount -= shotEnergyAmount;
+
+            // Create the two laser objects at the position and rotation given.
+            Instantiate(laserBeam, leftTurret.transform.position, transform.rotation);
+            Instantiate(laserBeam, rightTurret.transform.position, transform.rotation);
+
+            // Play the sound effect.
+            shootSound.Play();
+        }
+    }
+
+    // public void UpdatePlayerHealth()
+    //{
+
+    //    PlayerHealth();
+    //  }
+
+    public void PlayerHealth(float newHealthValue)
+    {
+        health = newHealthValue;
+
+        Debug.Log("Health is: " + health);
+
+        health = Mathf.Clamp(health, 0f, 1f);
+
+        healthBar.fillAmount = health;
+
+        if (health <= 0f)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void PlayerEnergy()
+    {
         // Replenish the energy amount over time.
         energyAmount += energyReplenish * Time.deltaTime;
 
-        // Clamping so that energyAmount will always be between 0f and 1f.
+        float newEnegryAmount = energyAmount;
+
         energyAmount = Mathf.Clamp(energyAmount, 0f, 1f);
-        // Animating the energy bar image.
+
         energyBar.fillAmount = energyAmount;
     }
 }

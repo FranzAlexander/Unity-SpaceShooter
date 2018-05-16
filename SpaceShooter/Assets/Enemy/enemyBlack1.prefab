@@ -51,13 +51,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1418639423696924}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4968711610868426}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!4 &4968711610868426
 Transform:
   m_ObjectHideFlags: 1
@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1481855604999220}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.9614167, y: 0.107200146, z: 0}
+  m_LocalPosition: {x: -4.1039267, y: 0.14764261, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4442191898691176}
@@ -128,7 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865e33d09a7a4fd47ad1d68df1195918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0.5
   enemy: {fileID: 1481855604999220}
+  firePoint: {fileID: 1418639423696924}
+  enemyLaserType: {fileID: 1835725775966778, guid: 80e007796e2186c4097e02be62adcb40,
+    type: 2}
 --- !u!212 &212093185765538646
 SpriteRenderer:
   m_ObjectHideFlags: 1
